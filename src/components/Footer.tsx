@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
-
+import EmailCopy from "@/components/EmailCopy";
 interface FooterProps {
   isEnglish: boolean;
 }
@@ -10,7 +10,7 @@ const Footer = ({ isEnglish }: FooterProps) => {
       company: "Quartz SMG",
       description: "Spécialiste en production et vente de silice de haute qualité au Québec",
       contact: "Contactez-nous",
-      address: "Région de Montréal, Québec",
+      address: "10222 Bd Saint-Michel, Montréal-Nord, QC H1H 5H1",
       rights: "Tous droits réservés.",
       privacy: "Politique de confidentialité",
     },
@@ -18,7 +18,7 @@ const Footer = ({ isEnglish }: FooterProps) => {
       company: "Quartz SMG", 
       description: "Specialist in high-quality silica production and sales in Quebec",
       contact: "Contact Us",
-      address: "Montreal Region, Quebec",
+      address: "10222 Bd Saint-Michel, Montréal-Nord, QC H1H 5H1",
       rights: "All rights reserved.",
       privacy: "Privacy Policy",
     }
@@ -53,11 +53,11 @@ const Footer = ({ isEnglish }: FooterProps) => {
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>(514) 000-0000</span>
+                <span>514-355-8806</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>info@quartzsmg.com</span>
+                <EmailCopy email="info@quartzsmg.com" />
               </div>
             </div>
           </div>

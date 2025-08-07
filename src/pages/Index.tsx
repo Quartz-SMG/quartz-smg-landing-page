@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Pickaxe, Truck, Factory } from "lucide-react";
-import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -104,12 +103,12 @@ const Index = () => {
           <p className="text-xl lg:text-2xl text-slate-200 mb-12 leading-relaxed animate-fade-in animation-delay-200">
             {t.hero.subtitle}
           </p>
-          <Link to="/services">
+          <a href="/services">
             <Button size="lg" className="text-lg px-8 py-4 animate-fade-in animation-delay-400">
               {t.hero.cta}
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -197,12 +196,12 @@ const Index = () => {
                   : "Nos équipements de pointe et nos méthodes d'extraction éprouvées garantissent une production de silice de la plus haute qualité. Situés stratégiquement près de Montréal pour une distribution efficace à travers le Québec."
                 }
               </p>
-              <Link to="/services">
+              <a href="/services">
                 <Button variant="outline" size="lg" className="flex items-center gap-3">
                   {isEnglish ? "Learn More" : "En Savoir Plus"}
                   <ArrowRight className="h-5 w-5" />
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -222,12 +221,12 @@ const Index = () => {
                   : "Nos spécimens de quartzite démontrent la qualité exceptionnelle et la pureté de nos produits de silice. Chaque pièce est soigneusement extraite et traitée pour répondre aux plus hautes normes de l'industrie."
                 }
               </p>
-              <Link to="/contact">
+              <a href="/contact">
                 <Button size="lg" className="flex items-center gap-3">
                   {t.contact.title}
                   <ArrowRight className="h-5 w-5" />
                 </Button>
-              </Link>
+              </a>
             </div>
             <div className="animate-scale-in">
               <img 

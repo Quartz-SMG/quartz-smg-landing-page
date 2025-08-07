@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import GoogleMapEmbed from "@/components/GoogleMapEmbed";
+import EmailCopy from "@/components/EmailCopy";
 
 const Contact = () => {
   const [isEnglish, setIsEnglish] = useState(false);
@@ -24,7 +25,7 @@ const Contact = () => {
       info: {
         title: "Informations de contact",
         address: "Adresse",
-        addressValue: "Région de Montréal\nQuébec, Canada",
+        addressValue: "10222 Bd Saint-Michel, Montréal-Nord, QC H1H 5H1",
         phone: "Téléphone",
         email: "E-mail",
         hours: "Heures d'ouverture",
@@ -50,7 +51,7 @@ const Contact = () => {
       info: {
         title: "Contact Information",
         address: "Address",
-        addressValue: "Montreal Region\nQuebec, Canada",
+        addressValue: "10222 Bd Saint-Michel, Montréal-Nord, QC H1H 5H1",
         phone: "Phone",
         email: "Email",
         hours: "Business Hours",
@@ -65,9 +66,7 @@ const Contact = () => {
 
   const t = isEnglish ? content.en : content.fr;
 
-  const placeQuery = isEnglish
-    ? "Montreal Region, Quebec, Canada"
-    : "Région de Montréal, Québec, Canada";
+  const placeQuery = "10222 Bd Saint-Michel, Montréal-Nord, QC H1H 5H1";
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
@@ -147,7 +146,7 @@ const Contact = () => {
                     <Phone className="h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium text-foreground mb-1">{t.info.phone}</h3>
-                      <p className="text-muted-foreground">(514) 000-0000</p>
+                      <p className="text-muted-foreground">514-355-8806</p>
                     </div>
                   </div>
                   
@@ -155,7 +154,9 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium text-foreground mb-1">{t.info.email}</h3>
-                      <p className="text-muted-foreground">info@quartzsmg.com</p>
+                      <div className="text-muted-foreground">
+                        <EmailCopy email="info@quartzsmg.com" />
+                      </div>
                     </div>
                   </div>
                   

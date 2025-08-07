@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import EmailCopy from "@/components/EmailCopy";
 
 const Privacy = () => {
   const [isEnglish, setIsEnglish] = useState(false);
@@ -133,7 +134,7 @@ const Privacy = () => {
                   <li>Retirer votre consentement</li>
                   <li>Vous opposer à certaines utilisations</li>
                 </ul>
-                <p>Pour exercer ces droits, contactez-nous à <a href="mailto:info@quartzsmg.com" className="text-primary underline">info@quartzsmg.com</a>.</p>
+            <p>Pour exercer ces droits, contactez-nous à <a href="mailto:info@quartzsmg.com" className="text-primary underline">info@quartzsmg.com</a> <EmailCopy email="info@quartzsmg.com" showText={false} className="inline-flex align-middle" />.</p>
               </div>
             </section>
 
@@ -217,7 +218,7 @@ const Privacy = () => {
                   <li>Withdraw your consent</li>
                   <li>Object to certain uses</li>
                 </ul>
-                <p>To exercise these rights, contact us at <a href="mailto:info@quartzsmg.com" className="text-primary underline">info@quartzsmg.com</a>.</p>
+            <p>To exercise these rights, contact us at <a href="mailto:info@quartzsmg.com" className="text-primary underline">info@quartzsmg.com</a> <EmailCopy email="info@quartzsmg.com" showText={false} className="inline-flex align-middle" />.</p>
               </div>
             </section>
           </article>
