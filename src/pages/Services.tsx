@@ -121,7 +121,13 @@ const Services = () => {
             {/* Extraction Service */}
             <Card className="h-full">
               <CardHeader>
-                <Pickaxe className="h-12 w-12 text-primary mb-4" />
+                <div className="mb-4">
+                  <img 
+                    src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/YGYV17641.jpeg"
+                    alt="Extraction de Quartzite"
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                </div>
                 <CardTitle className="text-xl">{t.extraction.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -142,7 +148,13 @@ const Services = () => {
             {/* Processing Service */}
             <Card className="h-full">
               <CardHeader>
-                <Factory className="h-12 w-12 text-primary mb-4" />
+                <div className="mb-4">
+                  <img 
+                    src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/IMG_3874-EDIT.jpg"
+                    alt="Traitement et Raffinage"
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                </div>
                 <CardTitle className="text-xl">{t.processing.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -163,7 +175,13 @@ const Services = () => {
             {/* Delivery Service */}
             <Card className="h-full">
               <CardHeader>
-                <Truck className="h-12 w-12 text-primary mb-4" />
+                <div className="mb-4">
+                  <img 
+                    src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/truck1.jpg"
+                    alt="Livraison et Logistique"
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                </div>
                 <CardTitle className="text-xl">{t.delivery.title}</CardTitle>
               </CardHeader>
               <CardContent>
