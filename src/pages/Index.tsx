@@ -81,14 +81,28 @@ const Index = () => {
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
       
       {/* Hero Section */}
-      <section className="relative py-20 animate-fade-in">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 animate-fade-in overflow-hidden">
+        {/* Video Background */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/videos/background-low.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        
+        <div className="container mx-auto px-4 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-5xl font-bold gradient-text mb-6">
                 {t.hero.title}
               </h1>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-slate-200 mb-8 leading-relaxed">
                 {t.hero.subtitle}
               </p>
               <Link to="/services">
