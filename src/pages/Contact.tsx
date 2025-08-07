@@ -12,7 +12,7 @@ const Contact = () => {
   const content = {
     fr: {
       title: "Contactez-nous",
-      subtitle: "Prêt à discuter de vos besoins en quartz? Notre équipe est là pour vous aider.",
+      subtitle: "Demandez un devis de quartz de haute pureté 99% et des informations techniques. Fournisseur au Québec (Lanaudière) et à l’international.",
       form: {
         title: "Envoyez-nous un message",
         name: "Nom complet",
@@ -38,7 +38,7 @@ const Contact = () => {
     },
     en: {
       title: "Contact Us",
-      subtitle: "Ready to discuss your quartz needs? Our team is here to help.",
+      subtitle: "Request a quote for 99% high‑purity quartz and technical info. Supplier in Quebec (Lanaudière) and internationally.",
       form: {
         title: "Send us a message",
         name: "Full Name",
@@ -80,6 +80,65 @@ const Contact = () => {
       document.body.appendChild(s);
     }
   }, []);
+
+  useEffect(() => {
+    const title = isEnglish
+      ? "Contact High‑Quality Quartz Supplier | Quebec – SMG"
+      : "Contact Fournisseur Quartz Haute Qualité | Québec – SMG";
+    const desc = isEnglish
+      ? "Quotes for 99% high‑purity quartz, samples and technical info. Serving Quebec (Lanaudière) and international markets."
+      : "Devis pour quartz de haute pureté 99%, échantillons et infos techniques. Service au Québec (Lanaudière) et marché international.";
+
+    document.title = title;
+
+    const upsertMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name=\"${name}\"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    const upsertProperty = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property=\"${property}\"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    const url = window.location.origin + window.location.pathname;
+
+    upsertMeta("description", desc);
+    upsertMeta(
+      "keywords",
+      isEnglish
+        ? "high‑purity quartz, Quebec quartz, Lanaudière quartz, quartz extraction, quartz processing, construction‑grade quartz, landscaping quartz, energy‑sector quartz, durable quartzite, scratch‑resistant quartz, stain‑resistant quartz, quartz countertops, quartz flooring, quartz shower surfaces, high‑quality quartz supplier, 99% pure quartz, quartz innovation, customer satisfaction quartz, Quebec quartz company, stable quartz production, quartz machinery development, quartz product diversification, Quartz SMG growth, quartz competitors, quartz value for money, personalized quartz customer service, quartz website, quartz website improvement, online visibility quartz, international quartz market"
+        : "quartz de haute pureté, quartz Québec, quartz Lanaudière, extraction quartz, transformation quartz, quartz pour construction, quartz aménagement paysager, quartz secteurs énergétiques, quartzite durable, résistance aux rayures quartz, résistance aux taches quartz, quartz pour surfaces de travail, quartz pour sols, quartz pour douches, fournisseur quartz haute qualité, quartz pur 99%, innovation quartz, satisfaction client quartz, entreprise quartz Québec, production quartz stable, développement machinerie quartz, diversification produits quartz, croissance Quartz SMG, concurrents quartz, qualité prix quartz, service client personnalisé quartz, site web quartz, amélioration site web quartz, visibilité en ligne quartz, marché international quartz"
+    );
+
+    upsertProperty("og:title", title);
+    upsertProperty("og:description", desc);
+    upsertProperty("og:type", "website");
+    upsertProperty("og:url", url);
+    const ogImagePath = "/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png";
+    upsertProperty("og:image", window.location.origin + ogImagePath);
+
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", desc);
+
+    let linkCanonical = document.querySelector('link[rel=\"canonical\"]') as HTMLLinkElement | null;
+    if (!linkCanonical) {
+      linkCanonical = document.createElement("link");
+      linkCanonical.setAttribute("rel", "canonical");
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute("href", url);
+  }, [isEnglish]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -221,7 +280,7 @@ const Contact = () => {
             <div>
               <img 
                 src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
-                alt="Échantillon de quartz de haute qualité"
+                alt="Échantillon de quartz de haute pureté 99%"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
             </div>

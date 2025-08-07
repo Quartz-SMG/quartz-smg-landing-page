@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Pickaxe, Factory, Truck, MapPin, ArrowRight } from "lucide-react";
@@ -11,8 +11,8 @@ const Services = () => {
 
   const content = {
     fr: {
-      title: "Nos Services",
-      subtitle: "SMG offre une gamme complète de services pour répondre à tous vos besoins en silice et quartzite.",
+      title: "Services d’extraction, transformation et livraison de quartz",
+      subtitle: "Extraction quartz et transformation quartz en Lanaudière (Québec). Production stable, machinerie dédiée et livraison pour construction, énergie et aménagement paysager.",
       extraction: {
         title: "Extraction de Quartzite",
         description: "Extraction professionnelle de quartzite de haute qualité à partir de notre mine Kirouac. Nous utilisons des équipements modernes et des techniques d'extraction respectueuses de l'environnement.",
@@ -51,8 +51,8 @@ const Services = () => {
       cta: "Demander un devis"
     },
     en: {
-      title: "Our Services",
-      subtitle: "SMG offers a complete range of services to meet all your silica and quartzite needs.",
+      title: "Quartz Extraction, Processing and Delivery Services",
+      subtitle: "Quartz extraction and processing in Lanaudière, Quebec. Stable production, dedicated machinery and delivery for construction, energy and landscaping.",
       extraction: {
         title: "Quartzite Extraction",
         description: "Professional extraction of high-quality quartzite from our Kirouac mine. We use modern equipment and environmentally responsible extraction techniques.",
@@ -96,6 +96,65 @@ const Services = () => {
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
+  useEffect(() => {
+    const title = isEnglish
+      ? "Quartz Extraction & Processing | Lanaudière – SMG"
+      : "Extraction & Transformation de Quartz | Lanaudière – SMG";
+    const desc = isEnglish
+      ? "Quartz extraction and processing in Quebec (Lanaudière). Stable production, product diversification and personalized customer service."
+      : "Extraction quartz et transformation quartz au Québec (Lanaudière). Production stable, diversification produits et service client personnalisé.";
+
+    document.title = title;
+
+    const upsertMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    const upsertProperty = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    const url = window.location.origin + window.location.pathname;
+
+    upsertMeta("description", desc);
+    upsertMeta(
+      "keywords",
+      isEnglish
+        ? "high‑purity quartz, Quebec quartz, Lanaudière quartz, quartz extraction, quartz processing, construction‑grade quartz, landscaping quartz, energy‑sector quartz, durable quartzite, scratch‑resistant quartz, stain‑resistant quartz, quartz countertops, quartz flooring, quartz shower surfaces, high‑quality quartz supplier, 99% pure quartz, quartz innovation, customer satisfaction quartz, Quebec quartz company, stable quartz production, quartz machinery development, quartz product diversification, Quartz SMG growth, quartz competitors, quartz value for money, personalized quartz customer service, quartz website, quartz website improvement, online visibility quartz, international quartz market"
+        : "quartz de haute pureté, quartz Québec, quartz Lanaudière, extraction quartz, transformation quartz, quartz pour construction, quartz aménagement paysager, quartz secteurs énergétiques, quartzite durable, résistance aux rayures quartz, résistance aux taches quartz, quartz pour surfaces de travail, quartz pour sols, quartz pour douches, fournisseur quartz haute qualité, quartz pur 99%, innovation quartz, satisfaction client quartz, entreprise quartz Québec, production quartz stable, développement machinerie quartz, diversification produits quartz, croissance Quartz SMG, concurrents quartz, qualité prix quartz, service client personnalisé quartz, site web quartz, amélioration site web quartz, visibilité en ligne quartz, marché international quartz"
+    );
+
+    upsertProperty("og:title", title);
+    upsertProperty("og:description", desc);
+    upsertProperty("og:type", "website");
+    upsertProperty("og:url", url);
+    const ogImagePath = "/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png";
+    upsertProperty("og:image", window.location.origin + ogImagePath);
+
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", desc);
+
+    let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!linkCanonical) {
+      linkCanonical = document.createElement("link");
+      linkCanonical.setAttribute("rel", "canonical");
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute("href", url);
+  }, [isEnglish]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
@@ -124,7 +183,7 @@ const Services = () => {
                 <div className="mb-4">
                   <img 
                     src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/YGYV17641.jpeg"
-                    alt="Extraction de Quartzite"
+                    alt="Extraction de quartz de haute pureté au Québec (Lanaudière)"
                     className="w-full h-48 object-cover rounded-md"
                   />
                 </div>
@@ -151,7 +210,7 @@ const Services = () => {
                 <div className="mb-4">
                   <img 
                     src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/IMG_3874-EDIT.jpg"
-                    alt="Traitement et Raffinage"
+                    alt="Transformation et traitement du quartz – pureté 99%"
                     className="w-full h-48 object-cover rounded-md"
                   />
                 </div>
@@ -178,7 +237,7 @@ const Services = () => {
                 <div className="mb-4">
                   <img 
                     src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/truck1.jpg"
-                    alt="Livraison et Logistique"
+                    alt="Livraison de quartz au Québec et à l’international"
                     className="w-full h-48 object-cover rounded-md"
                   />
                 </div>
@@ -209,7 +268,7 @@ const Services = () => {
             <div>
               <img 
                 src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
-                alt="Mine Kirouac - Équipement Komatsu"
+                alt="Mine Kirouac – extraction quartz Lanaudière"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
             </div>
@@ -259,7 +318,7 @@ const Services = () => {
             <div>
               <img 
                 src="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
-                alt="Opérations de traitement de silice"
+                alt="Opérations de traitement du quartz au Québec"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
             </div>

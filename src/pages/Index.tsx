@@ -12,77 +12,76 @@ const Index = () => {
   const content = {
     fr: {
       hero: {
-        title: "Producteur de Quartz au Québec",
-        subtitle: "SMG se spécialise dans la production et la vente de silice. Nous offrons du quartzite de haute qualité au Québec, avec nos opérations situées près de Montréal.",
+        title: "Quartz de haute pureté 99% au Québec",
+        subtitle: "Extraction, transformation et livraison de quartz en Lanaudière, Québec — pour la construction, l’énergie et l’aménagement paysager.",
         cta: "Nos Services"
       },
       about: {
         title: "À propos de SMG",
-        description: "Avec des années d'expérience dans l'extraction et la production de silice, SMG est votre partenaire de confiance pour tous vos besoins en quartzite de haute qualité. Notre mine Kirouac est située stratégiquement près de Montréal pour un service efficace."
+        description: "Entreprise quartz au Québec axée sur l’innovation, une production stable et la satisfaction client. Notre mine Kirouac, en Lanaudière, fournit du quartz de haute qualité (jusqu’à 99% de pureté) avec un excellent rapport qualité‑prix."
       },
       services: {
         title: "Nos Services",
         extraction: {
           title: "Extraction",
-          description: "Extraction professionnelle de quartzite de haute qualité"
+          description: "Extraction de quartz (quartzite) de haute pureté au Québec"
         },
         processing: {
           title: "Traitement",
-          description: "Traitement et raffinement de la silice selon vos spécifications"
+          description: "Transformation et raffinage du quartz selon vos spécifications"
         },
         delivery: {
           title: "Livraison",
-          description: "Service de livraison fiable dans toute la région de Montréal"
+          description: "Livraison fiable au Québec et vers le marché international"
         }
       },
       contact: {
         title: "Contactez-nous",
-        description: "Prêt à discuter de vos besoins en quartz? Contactez notre équipe dès aujourd'hui."
+        description: "Prêt à obtenir un devis pour du quartz de haute pureté ? Contactez‑nous dès aujourd’hui."
       }
     },
     en: {
       hero: {
-        title: "Quartz Producer in Quebec",
-        subtitle: "SMG specializes in the production and sale of silica. We offer high-quality quartzite in Quebec, with our operations located near Montreal.",
+        title: "99% High‑Purity Quartz in Quebec",
+        subtitle: "Quartz extraction, processing and delivery in Lanaudière, Quebec — for construction, energy and landscaping.",
         cta: "Our Services"
       },
       about: {
         title: "About SMG",
-        description: "With years of experience in silica extraction and production, SMG is your trusted partner for all your high-quality quartzite needs. Our Kirouac mine is strategically located near Montreal for efficient service."
+        description: "Quebec quartz company focused on innovation, stable production and customer satisfaction. Our Kirouac mine in Lanaudière supplies high‑quality quartz (up to 99% purity) with great value for money."
       },
       services: {
         title: "Our Services",
         extraction: {
           title: "Extraction",
-          description: "Professional extraction of high-quality quartzite"
+          description: "High‑purity quartz (quartzite) extraction in Quebec"
         },
         processing: {
           title: "Processing",
-          description: "Processing and refining silica to your specifications"
+          description: "Quartz processing and refining to your specifications"
         },
         delivery: {
           title: "Delivery",
-          description: "Reliable delivery service throughout the Montreal region"
+          description: "Reliable delivery across Quebec and to international markets"
         }
       },
       contact: {
         title: "Contact Us",
-        description: "Ready to discuss your quartz needs? Contact our team today."
+        description: "Ready to request a quote for high‑purity quartz? Get in touch today."
       }
     }
   };
-
   const t = isEnglish ? content.en : content.fr;
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
   useEffect(() => {
     const title = isEnglish
-      ? "Bulk Quartz Supplier in Quebec near Montreal | SMG"
-      : "Fournisseur de quartz en vrac au Québec près de Montréal | SMG";
+      ? "High‑Purity Quartz in Quebec | 99% Supplier – SMG"
+      : "Quartz de haute pureté au Québec | Fournisseur 99% – SMG";
     const desc = isEnglish
-      ? "SMG supplies bulk quartzite (silica) in Quebec near Montreal. High-quality bulk quartz material with reliable extraction, processing, and delivery."
-      : "SMG fournit du quartzite (silice) en vrac au Québec près de Montréal. Quartz en vrac de haute qualité avec extraction, traitement et livraison fiables.";
+      ? "99% high‑purity quartz from Lanaudière, Quebec. Quartz extraction, processing and delivery for construction, energy and landscaping."
+      : "Quartz de haute pureté 99% en Lanaudière (Québec). Extraction, transformation et livraison pour la construction, l’énergie et l’aménagement paysager.";
 
     document.title = title;
 
@@ -109,9 +108,12 @@ const Index = () => {
     const url = window.location.origin + window.location.pathname;
 
     upsertMeta("description", desc);
-    upsertMeta("keywords", isEnglish
-      ? "bulk quartz, quartzite supplier, silica, Quebec, Montreal, wholesale"
-      : "quartz en vrac, fournisseur quartzite, silice, Québec, Montréal, gros");
+    upsertMeta(
+      "keywords",
+      isEnglish
+        ? "high‑purity quartz, Quebec quartz, Lanaudière quartz, quartz extraction, quartz processing, construction‑grade quartz, landscaping quartz, energy‑sector quartz, durable quartzite, scratch‑resistant quartz, stain‑resistant quartz, quartz countertops, quartz flooring, quartz shower surfaces, high‑quality quartz supplier, 99% pure quartz, quartz innovation, customer satisfaction quartz, Quebec quartz company, stable quartz production, quartz machinery development, quartz product diversification, Quartz SMG growth, quartz competitors, quartz value for money, personalized quartz customer service, quartz website, quartz website improvement, online visibility quartz, international quartz market"
+        : "quartz de haute pureté, quartz Québec, quartz Lanaudière, extraction quartz, transformation quartz, quartz pour construction, quartz aménagement paysager, quartz secteurs énergétiques, quartzite durable, résistance aux rayures quartz, résistance aux taches quartz, quartz pour surfaces de travail, quartz pour sols, quartz pour douches, fournisseur quartz haute qualité, quartz pur 99%, innovation quartz, satisfaction client quartz, entreprise quartz Québec, production quartz stable, développement machinerie quartz, diversification produits quartz, croissance Quartz SMG, concurrents quartz, qualité prix quartz, service client personnalisé quartz, site web quartz, amélioration site web quartz, visibilité en ligne quartz, marché international quartz"
+    );
 
     upsertProperty("og:title", title);
     upsertProperty("og:description", desc);
@@ -132,19 +134,20 @@ const Index = () => {
     }
     linkCanonical.setAttribute("href", url);
 
-    // JSON-LD structured data
+    // JSON-LD: Organization
     const ldId = "ld-org";
-    const json = {
+    const org = {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "SMG",
       url,
       description: desc,
-      areaServed: ["Montreal", "Quebec"],
+      areaServed: ["Lanaudière", "Quebec", "Canada"],
+      availableLanguage: ["fr", "en"],
       keywords: isEnglish
-        ? "bulk quartz, quartzite, silica, Quebec, Montreal"
-        : "quartz en vrac, quartzite, silice, Québec, Montréal"
-    };
+        ? "high‑purity quartz, Quebec, Lanaudière, extraction, processing, delivery"
+        : "quartz de haute pureté, Québec, Lanaudière, extraction, transformation, livraison"
+    } as const;
 
     let ld = document.getElementById(ldId) as HTMLScriptElement | null;
     if (!ld) {
@@ -153,7 +156,68 @@ const Index = () => {
       ld.id = ldId;
       document.head.appendChild(ld);
     }
-    ld.text = JSON.stringify(json);
+    ld.text = JSON.stringify(org);
+
+    // JSON-LD: FAQPage
+    const faqId = "ld-faq";
+    const faq = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: (isEnglish
+        ? [
+            {
+              "@type": "Question",
+              name: "Is SMG quartz 99% pure?",
+              acceptedAnswer: { "@type": "Answer", text: "Yes, we offer up to 99% high‑purity quartz with certificates available upon request." }
+            },
+            {
+              "@type": "Question",
+              name: "Is it scratch‑ and stain‑resistant?",
+              acceptedAnswer: { "@type": "Answer", text: "Our quartzite is engineered for durability and is suitable for countertops, flooring and shower surfaces." }
+            },
+            {
+              "@type": "Question",
+              name: "Do you deliver internationally?",
+              acceptedAnswer: { "@type": "Answer", text: "Yes. We deliver across Quebec and serve international markets depending on volumes." }
+            },
+            {
+              "@type": "Question",
+              name: "Which sectors do you serve?",
+              acceptedAnswer: { "@type": "Answer", text: "Construction, energy sector, and landscaping, with stable production and personalized customer service." }
+            }
+          ]
+        : [
+            {
+              "@type": "Question",
+              name: "Le quartz SMG est‑il 99% pur ?",
+              acceptedAnswer: { "@type": "Answer", text: "Oui, nous offrons jusqu’à 99% de quartz de haute pureté avec certificats disponibles sur demande." }
+            },
+            {
+              "@type": "Question",
+              name: "Résiste‑t‑il aux rayures et aux taches ?",
+              acceptedAnswer: { "@type": "Answer", text: "Notre quartzite est conçu pour la durabilité et convient aux surfaces de travail, aux sols et aux douches." }
+            },
+            {
+              "@type": "Question",
+              name: "Livrez‑vous à l’international ?",
+              acceptedAnswer: { "@type": "Answer", text: "Oui. Nous livrons partout au Québec et desservons le marché international selon les volumes." }
+            },
+            {
+              "@type": "Question",
+              name: "Quels secteurs desservez‑vous ?",
+              acceptedAnswer: { "@type": "Answer", text: "Construction, secteurs énergétiques et aménagement paysager, avec une production stable et un service client personnalisé." }
+            }
+          ])
+    } as const;
+
+    let ldFaq = document.getElementById(faqId) as HTMLScriptElement | null;
+    if (!ldFaq) {
+      ldFaq = document.createElement("script");
+      ldFaq.type = "application/ld+json";
+      ldFaq.id = faqId;
+      document.head.appendChild(ldFaq);
+    }
+    ldFaq.text = JSON.stringify(faq);
   }, [isEnglish]);
 
   return (
@@ -219,7 +283,7 @@ const Index = () => {
             <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
-                alt={isEnglish ? "Komatsu equipment in quarry — bulk quartz supplier in Quebec near Montreal" : "Équipement Komatsu dans la carrière — quartz en vrac au Québec près de Montréal"}
+                alt={isEnglish ? "Komatsu equipment in quarry — 99% high‑purity quartz in Lanaudière, Quebec" : "Équipement Komatsu dans la carrière — quartz de haute pureté 99% en Lanaudière, Québec"}
                 loading="lazy"
                 decoding="async"
                 className="rounded-3xl shadow-glass w-full h-auto"
@@ -276,7 +340,7 @@ const Index = () => {
             <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
-                alt={isEnglish ? "Silica stockpile with industrial equipment — bulk quartz material in Quebec near Montreal" : "Pile de silice avec équipement industriel — quartz en vrac au Québec près de Montréal"}
+                alt={isEnglish ? "High‑purity quartz stockpile in Lanaudière, Quebec — industrial equipment" : "Stock de quartz de haute pureté en Lanaudière, Québec — équipement industriel"}
                 loading="lazy"
                 decoding="async"
                 className="rounded-3xl shadow-glass w-full h-auto"
@@ -327,12 +391,42 @@ const Index = () => {
             <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
-                alt={isEnglish ? "White quartz specimen — bulk quartz material supplier in Quebec near Montreal" : "Spécimen de quartz blanc — quartz en vrac au Québec près de Montréal"}
+                alt={isEnglish ? "White quartz specimen — 99% high‑purity quartz supplier in Quebec (Lanaudière)" : "Spécimen de quartz blanc — fournisseur de quartz de haute pureté 99% au Québec (Lanaudière)"}
                 loading="lazy"
                 decoding="async"
                 className="rounded-3xl shadow-glass w-full h-auto"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">
+            {isEnglish ? "Quartz FAQ" : "FAQ Quartz"}
+          </h2>
+          <div className="space-y-4">
+            <details className="rounded-lg border p-4 bg-background/60">
+              <summary className="cursor-pointer font-semibold">{isEnglish ? "Is SMG quartz 99% pure?" : "Le quartz SMG est‑il 99% pur ?"}</summary>
+              <p className="mt-2 text-muted-foreground">{isEnglish ? "Yes, up to 99% purity. Certificates available on request." : "Oui, jusqu’à 99% de pureté. Certificats disponibles sur demande."}</p>
+            </details>
+            <details className="rounded-lg border p-4 bg-background/60">
+              <summary className="cursor-pointer font-semibold">{isEnglish ? "Scratch‑ and stain‑resistant?" : "Résistance aux rayures et aux taches ?"}</summary>
+              <p className="mt-2 text-muted-foreground">{isEnglish ? "Suitable for countertops, flooring and showers." : "Adapté aux surfaces de travail, aux sols et aux douches."}</p>
+            </details>
+            <details className="rounded-lg border p-4 bg-background/60">
+              <summary className="cursor-pointer font-semibold">{isEnglish ? "International delivery?" : "Livraison internationale ?"}</summary>
+              <p className="mt-2 text-muted-foreground">{isEnglish ? "We deliver across Quebec and serve international markets depending on volumes." : "Nous livrons partout au Québec et desservons le marché international selon les volumes."}</p>
+            </details>
+            <details className="rounded-lg border p-4 bg-background/60">
+              <summary className="cursor-pointer font-semibold">{isEnglish ? "Which sectors do you serve?" : "Quels secteurs desservez‑vous ?"}</summary>
+              <p className="mt-2 text-muted-foreground">{isEnglish ? "Construction, energy and landscaping, with stable production and personalized service." : "Construction, secteurs énergétiques et aménagement paysager, avec une production stable et un service personnalisé."}</p>
+            </details>
+          </div>
+          <div className="mt-8">
+            <a href="/contact" className="underline text-primary">{isEnglish ? "Request a quote" : "Demander un devis"}</a>
           </div>
         </div>
       </section>
