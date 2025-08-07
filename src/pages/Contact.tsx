@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import GoogleMapEmbed from "@/components/GoogleMapEmbed";
 
 const Contact = () => {
   const [isEnglish, setIsEnglish] = useState(false);
@@ -63,6 +64,10 @@ const Contact = () => {
   };
 
   const t = isEnglish ? content.en : content.fr;
+
+  const placeQuery = isEnglish
+    ? "Montreal Region, Quebec, Canada"
+    : "Région de Montréal, Québec, Canada";
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
@@ -175,6 +180,21 @@ const Contact = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     {t.mine.description}
                   </p>
+                </CardContent>
+              </Card>
+
+              {/* Location Map */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-xl">
+                    {isEnglish ? "Location" : "Localisation"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <GoogleMapEmbed
+                    apiKey="AIzaSyDnavn3Px5y8XvuF1zq2U5ld7kbvJeCnqo"
+                    query={placeQuery}
+                  />
                 </CardContent>
               </Card>
             </div>
