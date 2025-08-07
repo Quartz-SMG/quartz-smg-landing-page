@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Pickaxe, Truck, Factory } from "lucide-react";
@@ -75,10 +75,91 @@ const Index = () => {
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
+  useEffect(() => {
+    const title = isEnglish
+      ? "Bulk Quartz Supplier in Quebec near Montreal | SMG"
+      : "Fournisseur de quartz en vrac au Québec près de Montréal | SMG";
+    const desc = isEnglish
+      ? "SMG supplies bulk quartzite (silica) in Quebec near Montreal. High-quality bulk quartz material with reliable extraction, processing, and delivery."
+      : "SMG fournit du quartzite (silice) en vrac au Québec près de Montréal. Quartz en vrac de haute qualité avec extraction, traitement et livraison fiables.";
+
+    document.title = title;
+
+    const upsertMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    const upsertProperty = (property: string, content: string) => {
+      let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", property);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    const url = window.location.origin + window.location.pathname;
+
+    upsertMeta("description", desc);
+    upsertMeta("keywords", isEnglish
+      ? "bulk quartz, quartzite supplier, silica, Quebec, Montreal, wholesale"
+      : "quartz en vrac, fournisseur quartzite, silice, Québec, Montréal, gros");
+
+    upsertProperty("og:title", title);
+    upsertProperty("og:description", desc);
+    upsertProperty("og:type", "website");
+    upsertProperty("og:url", url);
+    const ogImagePath = "/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png";
+    upsertProperty("og:image", window.location.origin + ogImagePath);
+
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", desc);
+
+    let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!linkCanonical) {
+      linkCanonical = document.createElement("link");
+      linkCanonical.setAttribute("rel", "canonical");
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute("href", url);
+
+    // JSON-LD structured data
+    const ldId = "ld-org";
+    const json = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "SMG",
+      url,
+      description: desc,
+      areaServed: ["Montreal", "Quebec"],
+      keywords: isEnglish
+        ? "bulk quartz, quartzite, silica, Quebec, Montreal"
+        : "quartz en vrac, quartzite, silice, Québec, Montréal"
+    };
+
+    let ld = document.getElementById(ldId) as HTMLScriptElement | null;
+    if (!ld) {
+      ld = document.createElement("script");
+      ld.type = "application/ld+json";
+      ld.id = ldId;
+      document.head.appendChild(ld);
+    }
+    ld.text = JSON.stringify(json);
+  }, [isEnglish]);
+
   return (
     <div className="min-h-screen">
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
       
+      <main>
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
@@ -129,7 +210,9 @@ const Index = () => {
             <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
-                alt="Équipement Komatsu dans la carrière"
+                alt={isEnglish ? "Komatsu equipment in quarry — bulk quartz supplier in Quebec near Montreal" : "Équipement Komatsu dans la carrière — quartz en vrac au Québec près de Montréal"}
+                loading="lazy"
+                decoding="async"
                 className="rounded-3xl shadow-glass w-full h-auto"
               />
             </div>
@@ -184,7 +267,9 @@ const Index = () => {
             <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
-                alt="Pile de silice avec équipement industriel"
+                alt={isEnglish ? "Silica stockpile with industrial equipment — bulk quartz material in Quebec near Montreal" : "Pile de silice avec équipement industriel — quartz en vrac au Québec près de Montréal"}
+                loading="lazy"
+                decoding="async"
                 className="rounded-3xl shadow-glass w-full h-auto"
               />
             </div>
@@ -233,13 +318,17 @@ const Index = () => {
             <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
-                alt="Spécimen de quartz blanc"
+                alt={isEnglish ? "White quartz specimen — bulk quartz material supplier in Quebec near Montreal" : "Spécimen de quartz blanc — quartz en vrac au Québec près de Montréal"}
+                loading="lazy"
+                decoding="async"
                 className="rounded-3xl shadow-glass w-full h-auto"
               />
             </div>
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer isEnglish={isEnglish} />
     </div>
