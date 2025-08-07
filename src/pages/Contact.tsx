@@ -105,12 +105,14 @@ const Contact = () => {
                 <CardTitle className="text-2xl">{t.form.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div
-                  className="hs-form-frame"
-                  data-region="na1"
-                  data-form-id="275c81c5-5fc9-49f9-bb89-d2da705cbd77"
-                  data-portal-id="46952133"
-                />
+                <div className="rounded-2xl p-6 bg-foreground text-background shadow-lg">
+                  <div
+                    className="hs-form-frame"
+                    data-region="na1"
+                    data-form-id="275c81c5-5fc9-49f9-bb89-d2da705cbd77"
+                    data-portal-id="46952133"
+                  />
+                </div>
                 <p className="text-xs text-muted-foreground mt-4">
                   {isEnglish
                     ? "This form is provided by HubSpot. By submitting, you consent to processing per our Privacy Policy."
