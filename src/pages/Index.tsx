@@ -100,7 +100,9 @@ const Index = () => {
           <h1 className="text-5xl lg:text-7xl font-bold gradient-text mb-8 animate-fade-in">
             {t.hero.title}
           </h1>
-          <p className="text-xl lg:text-2xl text-slate-200 mb-12 leading-relaxed animate-fade-in animation-delay-200">
+          <p
+            className={`${isEnglish ? "text-xl lg:text-2xl" : "text-[1.375rem] lg:text-[1.65rem]"} text-slate-200 mb-12 leading-relaxed animate-fade-in animation-delay-200`}
+          >
             {t.hero.subtitle}
           </p>
           <a href="/services">
