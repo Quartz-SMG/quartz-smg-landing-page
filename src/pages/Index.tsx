@@ -80,8 +80,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
       
-      {/* Hero Section */}
-      <section className="relative py-20 animate-fade-in overflow-hidden">
+      {/* Hero Section with Video Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <video 
           autoPlay 
@@ -94,114 +94,142 @@ const Index = () => {
         </video>
         
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
         
-        <div className="container mx-auto px-4 relative z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl lg:text-5xl font-bold gradient-text mb-6">
-                {t.hero.title}
-              </h1>
-              <p className="text-lg text-slate-200 mb-8 leading-relaxed">
-                {t.hero.subtitle}
-              </p>
-              <Link to="/services">
-                <Button size="lg" className="flex items-center gap-2">
-                  {t.hero.cta}
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
-                alt="Pile de silice avec équipement industriel"
-                className="rounded-3xl shadow-glass w-full h-auto animate-scale-in"
-              />
-            </div>
-          </div>
+        {/* Hero Content */}
+        <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
+          <h1 className="text-5xl lg:text-7xl font-bold gradient-text mb-8 animate-fade-in">
+            {t.hero.title}
+          </h1>
+          <p className="text-xl lg:text-2xl text-slate-200 mb-12 leading-relaxed animate-fade-in animation-delay-200">
+            {t.hero.subtitle}
+          </p>
+          <Link to="/services">
+            <Button size="lg" className="text-lg px-8 py-4 animate-fade-in animation-delay-400">
+              {t.hero.cta}
+              <ArrowRight className="h-5 w-5 ml-2" />
+            </Button>
+          </Link>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-16">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-8">
+                {t.about.title}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t.about.description}
+              </p>
+            </div>
+            <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
                 alt="Équipement Komatsu dans la carrière"
                 className="rounded-3xl shadow-glass w-full h-auto"
               />
             </div>
-            <div>
-              <h2 className="text-3xl font-bold gradient-text mb-6">
-                {t.about.title}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {t.about.description}
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-16">
+      {/* Services Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center gradient-text mb-12">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center gradient-text mb-16">
             {t.services.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass-card text-center p-8 hover:shadow-glow transition-all duration-300 hover:scale-105">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full mb-6 border border-amber-500/30">
-                <Pickaxe className="h-8 w-8 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-100 mb-3">{t.services.extraction.title}</h3>
-              <p className="text-slate-300">{t.services.extraction.description}</p>
-            </div>
+            <Card className="glass-card p-8 text-center hover:shadow-glow transition-all duration-300 hover:scale-105 border-amber-500/20">
+              <CardContent className="p-0">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full mb-6 border border-amber-500/30">
+                  <Pickaxe className="h-10 w-10 text-amber-400" />
+                </div>
+                <h3 className="text-2xl font-semibold text-slate-100 mb-4">{t.services.extraction.title}</h3>
+                <p className="text-slate-300">{t.services.extraction.description}</p>
+              </CardContent>
+            </Card>
             
-            <div className="glass-card text-center p-8 hover:shadow-glow transition-all duration-300 hover:scale-105">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full mb-6 border border-amber-500/30">
-                <Factory className="h-8 w-8 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-100 mb-3">{t.services.processing.title}</h3>
-              <p className="text-slate-300">{t.services.processing.description}</p>
-            </div>
+            <Card className="glass-card p-8 text-center hover:shadow-glow transition-all duration-300 hover:scale-105 border-amber-500/20">
+              <CardContent className="p-0">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full mb-6 border border-amber-500/30">
+                  <Factory className="h-10 w-10 text-amber-400" />
+                </div>
+                <h3 className="text-2xl font-semibold text-slate-100 mb-4">{t.services.processing.title}</h3>
+                <p className="text-slate-300">{t.services.processing.description}</p>
+              </CardContent>
+            </Card>
             
-            <div className="glass-card text-center p-8 hover:shadow-glow transition-all duration-300 hover:scale-105">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full mb-6 border border-amber-500/30">
-                <Truck className="h-8 w-8 text-amber-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-100 mb-3">{t.services.delivery.title}</h3>
-              <p className="text-slate-300">{t.services.delivery.description}</p>
+            <Card className="glass-card p-8 text-center hover:shadow-glow transition-all duration-300 hover:scale-105 border-amber-500/20">
+              <CardContent className="p-0">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full mb-6 border border-amber-500/30">
+                  <Truck className="h-10 w-10 text-amber-400" />
+                </div>
+                <h3 className="text-2xl font-semibold text-slate-100 mb-4">{t.services.delivery.title}</h3>
+                <p className="text-slate-300">{t.services.delivery.description}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Showcase */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-scale-in">
+              <img 
+                src="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
+                alt="Pile de silice avec équipement industriel"
+                className="rounded-3xl shadow-glass w-full h-auto"
+              />
+            </div>
+            <div className="animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-8">
+                {isEnglish ? "Premium Silica Production" : "Production de Silice Premium"}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                {isEnglish 
+                  ? "Our state-of-the-art equipment and proven extraction methods ensure the highest quality silica production. Located strategically near Montreal for efficient distribution across Quebec."
+                  : "Nos équipements de pointe et nos méthodes d'extraction éprouvées garantissent une production de silice de la plus haute qualité. Situés stratégiquement près de Montréal pour une distribution efficace à travers le Québec."
+                }
+              </p>
+              <Link to="/services">
+                <Button variant="outline" size="lg" className="flex items-center gap-3">
+                  {isEnglish ? "Learn More" : "En Savoir Plus"}
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quartz Specimen Section */}
-      <section className="py-16">
+      {/* Quality Showcase */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold gradient-text mb-6">
-                {isEnglish ? "High-Quality Quartzite" : "Quartzite de Haute Qualité"}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-fade-in">
+              <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-8">
+                {isEnglish ? "Exceptional Purity" : "Pureté Exceptionnelle"}
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 {isEnglish 
                   ? "Our quartzite specimens demonstrate the exceptional quality and purity of our silica products. Each piece is carefully extracted and processed to meet the highest industry standards."
                   : "Nos spécimens de quartzite démontrent la qualité exceptionnelle et la pureté de nos produits de silice. Chaque pièce est soigneusement extraite et traitée pour répondre aux plus hautes normes de l'industrie."
                 }
               </p>
               <Link to="/contact">
-                <Button variant="outline" className="flex items-center gap-2">
+                <Button size="lg" className="flex items-center gap-3">
                   {t.contact.title}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
             </div>
-            <div>
+            <div className="animate-scale-in">
               <img 
                 src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
                 alt="Spécimen de quartz blanc"
@@ -209,24 +237,6 @@ const Index = () => {
               />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold gradient-text mb-6">
-            {t.contact.title}
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            {t.contact.description}
-          </p>
-          <Link to="/contact">
-            <Button size="lg" className="flex items-center gap-2 mx-auto">
-              {t.contact.title}
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
         </div>
       </section>
 
