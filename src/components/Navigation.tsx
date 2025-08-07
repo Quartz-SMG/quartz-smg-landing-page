@@ -41,8 +41,13 @@ const Navigation = ({ isEnglish, toggleLanguage }: NavigationProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold gradient-text">
-            {t.company}
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/logo/logo-2.png"
+              alt="Quartz SMG Logo"
+              className="h-10 w-auto"
+            />
+            <span className="text-xl font-bold gradient-text">{t.company}</span>
           </Link>
 
           {/* Desktop Navigation */}

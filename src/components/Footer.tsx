@@ -30,7 +30,14 @@ const Footer = ({ isEnglish }: FooterProps) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-semibold gradient-text mb-4">{t.company}</h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/logo/logo-2.png"
+                alt="Quartz SMG Logo"
+                className="h-8 w-auto"
+              />
+              <h3 className="text-lg font-semibold gradient-text">{t.company}</h3>
+            </div>
             <p className="text-slate-300 mb-4">{t.description}</p>
           </div>
 
