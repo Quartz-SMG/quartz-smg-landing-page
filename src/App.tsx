@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import TemporaryRedirect from "./components/TemporaryRedirect";
 import Privacy from "./pages/Privacy";
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
         </Routes>
 
       </BrowserRouter>
+      <CookieConsent />
     </TooltipProvider>
   </QueryClientProvider>
 );
