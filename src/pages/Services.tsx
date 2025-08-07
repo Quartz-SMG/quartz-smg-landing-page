@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Pickaxe, Factory, Truck, MapPin, ArrowRight } from "lucide-react";
+import { Pickaxe, Factory, Truck, MapPin, ArrowRight, Hammer, Zap, Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -153,6 +153,37 @@ const Services = () => {
       document.head.appendChild(linkCanonical);
     }
     linkCanonical.setAttribute("href", url);
+
+    // JSON-LD: Service
+    const ldServiceId = "ld-service";
+    const serviceLd = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: isEnglish
+        ? "Quartz Extraction, Processing and Delivery"
+        : "Extraction, Transformation et Livraison de Quartz",
+      description: desc,
+      serviceType: "Quartzite & high-purity silica (≈99%)",
+      areaServed: ["Lanaudière", "Québec", "Canada"],
+      provider: {
+        "@type": "Organization",
+        name: "SMG",
+        url
+      },
+      offers: {
+        "@type": "Offer",
+        url
+      }
+    } as const;
+
+    let ldService = document.getElementById(ldServiceId) as HTMLScriptElement | null;
+    if (!ldService) {
+      ldService = document.createElement("script");
+      ldService.type = "application/ld+json";
+      ldService.id = ldServiceId;
+      document.head.appendChild(ldService);
+    }
+    ldService.text = JSON.stringify(serviceLd);
   }, [isEnglish]);
 
   return (
@@ -184,6 +215,8 @@ const Services = () => {
                   <img 
                     src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/YGYV17641.jpeg"
                     alt="Extraction de quartz de haute pureté au Québec (Lanaudière)"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover rounded-md"
                   />
                 </div>
@@ -211,6 +244,8 @@ const Services = () => {
                   <img 
                     src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/IMG_3874-EDIT.jpg"
                     alt="Transformation et traitement du quartz – pureté 99%"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover rounded-md"
                   />
                 </div>
@@ -238,6 +273,8 @@ const Services = () => {
                   <img 
                     src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/old_photos/truck1.jpg"
                     alt="Livraison de quartz au Québec et à l’international"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover rounded-md"
                   />
                 </div>
@@ -261,6 +298,64 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Applications */}
+      <section className="py-10 md:py-16 bg-muted/30">
+        <div className="container mx-auto px-3 sm:px-4">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-8">
+            {isEnglish ? "Applications" : "Applications"}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <Card className="h-full">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <Hammer className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-xl">{isEnglish ? "Construction" : "Construction"}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>{isEnglish ? "Countertops, flooring, shower surfaces" : "Surfaces de travail, sols, douches"}</li>
+                  <li>{isEnglish ? "Durable quartzite; scratch- and stain-resistant" : "Quartzite durable; résistance aux rayures et aux taches"}</li>
+                  <li>{isEnglish ? "Custom particle sizes for mixes" : "Granulométries personnalisées pour mélanges"}</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="h-full">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <Zap className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-xl">{isEnglish ? "Energy Sector" : "Secteurs Énergétiques"}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>{isEnglish ? "High‑purity silica (≈99%) for industrial uses" : "Silice de haute pureté (≈99%) pour usages industriels"}</li>
+                  <li>{isEnglish ? "Stable production and quality control" : "Production stable et contrôle qualité"}</li>
+                  <li>{isEnglish ? "Reliable logistics across Quebec" : "Logistique fiable partout au Québec"}</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="h-full">
+              <CardHeader>
+                <div className="flex items-center gap-3">
+                  <Leaf className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-xl">{isEnglish ? "Landscaping" : "Aménagement Paysager"}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>{isEnglish ? "Decorative aggregates and durable quartzite" : "Agrégats décoratifs et quartzite durable"}</li>
+                  <li>{isEnglish ? "Bulk or bagged delivery" : "Livraison en vrac ou ensachée"}</li>
+                  <li>{isEnglish ? "Flexible scheduling" : "Planification flexible"}</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Mine Information */}
       <section className="py-10 md:py-16 bg-muted/30">
         <div className="container mx-auto px-3 sm:px-4">
@@ -269,6 +364,8 @@ const Services = () => {
               <img 
                 src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
                 alt="Mine Kirouac – extraction quartz Lanaudière"
+                loading="lazy"
+                decoding="async"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
             </div>
@@ -319,6 +416,8 @@ const Services = () => {
               <img 
                 src="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
                 alt="Opérations de traitement du quartz au Québec"
+                loading="lazy"
+                decoding="async"
                 className="rounded-lg shadow-xl w-full h-auto"
               />
             </div>
