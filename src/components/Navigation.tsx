@@ -37,11 +37,11 @@ const Navigation = ({ isEnglish, toggleLanguage }: NavigationProps) => {
   ];
 
   return (
-    <nav className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b sticky top-0 z-50">
+    <nav className="glass border-b border-slate-700/50 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold text-primary">
+          <Link to="/" className="text-xl font-bold gradient-text">
             {t.company}
           </Link>
 
@@ -52,8 +52,8 @@ const Navigation = ({ isEnglish, toggleLanguage }: NavigationProps) => {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "text-foreground hover:text-primary transition-colors",
-                  location.pathname === item.path && "text-primary font-medium"
+                  "text-slate-300 hover:text-amber-400 transition-colors",
+                  location.pathname === item.path && "text-amber-400 font-medium"
                 )}
               >
                 {item.label}

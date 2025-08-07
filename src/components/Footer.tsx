@@ -25,13 +25,13 @@ const Footer = ({ isEnglish }: FooterProps) => {
   const t = isEnglish ? content.en : content.fr;
 
   return (
-    <footer className="bg-muted/30 border-t mt-16">
+    <footer className="glass border-t border-slate-700/50 mt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-semibold text-primary mb-4">{t.company}</h3>
-            <p className="text-muted-foreground mb-4">{t.description}</p>
+            <h3 className="text-lg font-semibold gradient-text mb-4">{t.company}</h3>
+            <p className="text-slate-300 mb-4">{t.description}</p>
           </div>
 
           {/* Contact Info */}

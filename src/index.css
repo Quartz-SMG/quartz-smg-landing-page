@@ -6,89 +6,92 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base dark theme - slate colors with gradients */
+    --background: 215 28% 17%; /* slate-800 */
+    --foreground: 210 40% 98%; /* slate-50 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card styling with glass effect */
+    --card: 215 28% 17% / 0.5; /* slate-800 with transparency */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 215 25% 27%; /* slate-700 */
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary colors - amber/orange gradient theme */
+    --primary: 32 95% 44%; /* amber-500 */
+    --primary-foreground: 215 28% 17%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - slate variations */
+    --secondary: 215 25% 27% / 0.8; /* slate-700 with transparency */
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted colors */
+    --muted: 215 25% 27% / 0.3; /* slate-700 with more transparency */
+    --muted-foreground: 215.4 16.3% 65%; /* slate-400 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent colors */
+    --accent: 215 25% 27% / 0.6; /* slate-700 */
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs with transparency */
+    --border: 215 25% 27% / 0.5; /* slate-700 with transparency */
+    --input: 215 25% 27% / 0.3; /* slate-700 lighter */
+    --ring: 32 95% 44%; /* amber-500 */
 
-    --radius: 0.5rem;
+    --radius: 1.5rem; /* More rounded for glass effect */
 
-    --sidebar-background: 0 0% 98%;
+    /* Gradients for the original design */
+    --gradient-primary: linear-gradient(135deg, hsl(220 13% 18%), hsl(215 28% 17%), hsl(220 13% 18%));
+    --gradient-text: linear-gradient(to right, hsl(210 40% 98%), hsl(215.4 16.3% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(215 28% 17% / 0.5), hsl(215 25% 27% / 0.3));
+    
+    /* Glass effect shadows */
+    --shadow-glass: 0 25px 50px -12px hsl(220 13% 18% / 0.25);
+    --shadow-glow: 0 0 40px hsl(32 95% 44% / 0.15);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar colors */
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 32 95% 44%;
+    --sidebar-primary-foreground: 215 28% 17%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 25% 27% / 0.5;
+    --sidebar-ring: 32 95% 44%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Dark mode uses the same colors - this is primarily a dark theme */
+    --background: 215 28% 17%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 215 28% 17% / 0.5;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 215 25% 27%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 32 95% 44%;
+    --primary-foreground: 215 28% 17%;
+    --secondary: 215 25% 27% / 0.8;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
+    --muted: 215 25% 27% / 0.3;
+    --muted-foreground: 215.4 16.3% 65%;
+    --accent: 215 25% 27% / 0.6;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 215 25% 27% / 0.5;
+    --input: 215 25% 27% / 0.3;
+    --ring: 32 95% 44%;
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 32 95% 44%;
+    --sidebar-primary-foreground: 215 28% 17%;
+    --sidebar-accent: 215 25% 27%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 25% 27% / 0.5;
+    --sidebar-ring: 32 95% 44%;
   }
 }
 
@@ -98,6 +101,26 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-foreground;
+    min-height: 100vh;
+  }
+
+  /* Glass morphism utilities */
+  .glass {
+    @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700/50;
+  }
+
+  .glass-card {
+    @apply bg-slate-800/50 backdrop-blur-sm rounded-3xl shadow-2xl border border-slate-700/50;
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent;
+  }
+
+  /* Enhanced button hover effects */
+  .btn-glass {
+    @apply bg-slate-700/30 hover:bg-slate-600/40 backdrop-blur-sm border border-slate-600/30 transition-all duration-200;
   }
 }
