@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Pickaxe, Truck, Factory } from "lucide-react";
@@ -75,6 +75,49 @@ const Index = () => {
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
+  // Video refs for boomerang effect
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const reversingRef = useRef(false);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleEnded = () => {
+      if (reversingRef.current) return;
+      reversingRef.current = true;
+
+      const start = performance.now();
+      const startTime = video.duration || video.currentTime;
+
+      const step = (now: number) => {
+        if (!reversingRef.current) return;
+        const elapsed = (now - start) / 1000; // seconds at ~1x speed
+        const t = Math.max(startTime - elapsed, 0);
+        try {
+          video.currentTime = t;
+        } catch {}
+        if (t > 0) {
+          rafRef.current = requestAnimationFrame(step);
+        } else {
+          reversingRef.current = false;
+          video.play().catch(() => {});
+        }
+      };
+
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    video.addEventListener("ended", handleEnded);
+
+    return () => {
+      video.removeEventListener("ended", handleEnded);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      reversingRef.current = false;
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
@@ -83,10 +126,11 @@ const Index = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <video 
+          ref={videoRef}
           autoPlay 
-          loop 
           muted 
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover z-0"
         >
           <source src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/videos/background-low.mp4" type="video/mp4" />
