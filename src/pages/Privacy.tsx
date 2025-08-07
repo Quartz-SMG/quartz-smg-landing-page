@@ -226,4 +226,7 @@ const Privacy = () => {
 
       <Footer isEnglish={isEnglish} />
     </div>
-  );
+);
+};
+
+export default Privacy;
