@@ -105,7 +105,7 @@ const Contact = () => {
                 <CardTitle className="text-2xl">{t.form.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="rounded-2xl p-6 bg-foreground text-background shadow-lg hs-form-wrapper">
+                <div className="rounded-2xl p-6 bg-foreground text-background shadow-lg">
                   <div
                     className="hs-form-frame"
                     data-region="na1"
