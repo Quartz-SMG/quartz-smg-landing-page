@@ -1,8 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -69,6 +66,17 @@ const Contact = () => {
 
   const toggleLanguage = () => setIsEnglish(!isEnglish);
 
+  useEffect(() => {
+    const src = "https://js.hsforms.net/forms/embed/46952133.js";
+    const existing = document.querySelector(`script[src="${src}"]`) as HTMLScriptElement | null;
+    if (!existing) {
+      const s = document.createElement("script");
+      s.src = src;
+      s.defer = true;
+      document.body.appendChild(s);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
@@ -97,51 +105,17 @@ const Contact = () => {
                 <CardTitle className="text-2xl">{t.form.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        {t.form.name}
-                      </label>
-                      <Input placeholder={t.form.name} />
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        {t.form.email}
-                      </label>
-                      <Input type="email" placeholder={t.form.email} />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      {t.form.company}
-                    </label>
-                    <Input placeholder={t.form.company} />
-                  </div>
-                  
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      {t.form.subject}
-                    </label>
-                    <Input placeholder={t.form.subject} />
-                  </div>
-                  
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      {t.form.message}
-                    </label>
-                    <Textarea 
-                      placeholder={t.form.message}
-                      rows={5}
-                      className="resize-none"
-                    />
-                  </div>
-                  
-                  <Button type="submit" size="lg" className="w-full">
-                    {t.form.send}
-                  </Button>
-                </form>
+                <div
+                  className="hs-form-frame"
+                  data-region="na1"
+                  data-form-id="275c81c5-5fc9-49f9-bb89-d2da705cbd77"
+                  data-portal-id="46952133"
+                />
+                <p className="text-xs text-muted-foreground mt-4">
+                  {isEnglish
+                    ? "This form is provided by HubSpot. By submitting, you consent to processing per our Privacy Policy."
+                    : "Ce formulaire est fourni par HubSpot. En le soumettant, vous consentez au traitement selon notre Politique de confidentialité."}
+                </p>
               </CardContent>
             </Card>
 
