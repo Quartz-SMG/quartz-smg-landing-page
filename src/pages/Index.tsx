@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Pickaxe, Truck, Factory } from "lucide-react";
@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   const [isEnglish, setIsEnglish] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const content = {
     fr: {
@@ -163,12 +164,20 @@ const Index = () => {
       {/* Hero Section with Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          preload="auto"
+          poster="/lovable-uploads/bcd7da19-fd60-4ad5-9338-dec3a84f5160.png"
+          onTimeUpdate={(e) => {
+            const v = e.currentTarget;
+            if (v.duration && v.duration - v.currentTime < 0.06) {
+              v.currentTime = 0.01; // seamless loop, avoids decode stall at end
+            }
+          }}
+          className="absolute inset-0 w-full h-full object-cover z-0 transform-gpu will-change-transform"
         >
           <source src="https://ixapoibuyumuuhamvost.supabase.co/storage/v1/object/public/public-assets/app-assets/videos/background-low.mp4" type="video/mp4" />
         </video>
