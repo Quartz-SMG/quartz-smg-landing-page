@@ -101,8 +101,8 @@ const Services = () => {
       <Navigation isEnglish={isEnglish} toggleLanguage={toggleLanguage} />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
               {t.title}
@@ -115,9 +115,9 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="py-10 md:py-16">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Extraction Service */}
             <Card className="h-full">
               <CardHeader>
@@ -203,9 +203,9 @@ const Services = () => {
       </section>
 
       {/* Mine Information */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-10 md:py-16 bg-muted/30">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <img 
                 src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
@@ -236,9 +236,9 @@ const Services = () => {
       </section>
 
       {/* Operations Image */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-10 md:py-16">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-foreground mb-6">
                 {isEnglish ? "State-of-the-Art Operations" : "Opérations de Pointe"}
