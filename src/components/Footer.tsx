@@ -11,14 +11,16 @@ const Footer = ({ isEnglish }: FooterProps) => {
       description: "Spécialiste en production et vente de silice de haute qualité au Québec",
       contact: "Contactez-nous",
       address: "Région de Montréal, Québec",
-      rights: "Tous droits réservés."
+      rights: "Tous droits réservés.",
+      privacy: "Politique de confidentialité",
     },
     en: {
       company: "Quartz SMG", 
       description: "Specialist in high-quality silica production and sales in Quebec",
       contact: "Contact Us",
       address: "Montreal Region, Quebec",
-      rights: "All rights reserved."
+      rights: "All rights reserved.",
+      privacy: "Privacy Policy",
     }
   };
 
@@ -73,8 +75,14 @@ const Footer = ({ isEnglish }: FooterProps) => {
         </div>
 
         <div className="border-t mt-8 pt-6 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} {t.company}. {t.rights}</p>
+          <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>&copy; {new Date().getFullYear()} {t.company}. {t.rights}</p>
+            <a href="/privacy" className="text-primary hover:underline">
+              {t.privacy}
+            </a>
+          </div>
         </div>
+
       </div>
     </footer>
   );
