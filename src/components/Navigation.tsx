@@ -18,13 +18,13 @@ const Navigation = ({ isEnglish, toggleLanguage }: NavigationProps) => {
       home: "Accueil",
       services: "Services",
       contact: "Contact",
-      company: "Quartz SMG"
+      company: "QUARTZ SMG"
     },
     en: {
       home: "Home",
       services: "Services", 
       contact: "Contact",
-      company: "Quartz SMG"
+      company: "QUARTZ SMG"
     }
   };
 
