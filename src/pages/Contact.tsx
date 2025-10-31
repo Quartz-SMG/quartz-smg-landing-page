@@ -165,7 +165,7 @@ const Contact = () => {
             <img 
               src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
               alt="Échantillon de quartz de haute pureté 99%"
-              className="rounded-lg shadow-lg w-full max-w-md h-auto"
+              className="rounded-lg shadow-lg w-full max-w-xs h-auto"
             />
           </div>
         </div>
