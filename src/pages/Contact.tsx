@@ -262,32 +262,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">
-                {isEnglish ? "Visit Our Operations" : "Visitez nos Opérations"}
-              </h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {isEnglish 
-                  ? "We welcome visits to our Kirouac mine site. Contact us to arrange a tour and see our state-of-the-art quartzite extraction and processing operations firsthand."
-                  : "Nous accueillons les visites de notre site minier Kirouac. Contactez-nous pour organiser une visite et voir de près nos opérations d'extraction et de traitement de quartzite de pointe."
-                }
-              </p>
-            </div>
-            <div>
-              <img 
-                src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
-                alt="Échantillon de quartz de haute pureté 99%"
-                className="rounded-lg shadow-xl w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer isEnglish={isEnglish} />
     </div>
   );
