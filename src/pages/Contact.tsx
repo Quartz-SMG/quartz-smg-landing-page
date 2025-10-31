@@ -262,6 +262,19 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Image Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center">
+            <img 
+              src="/lovable-uploads/77f6a516-80dd-4ef8-9b9f-6dd507e475ef.png"
+              alt="Échantillon de quartz de haute pureté 99%"
+              className="rounded-lg shadow-xl w-full max-w-2xl h-auto"
+            />
+          </div>
+        </div>
+      </section>
+
       <Footer isEnglish={isEnglish} />
     </div>
   );
