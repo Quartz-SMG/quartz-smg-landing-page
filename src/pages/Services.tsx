@@ -362,7 +362,7 @@ const Services = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
             <div>
               <img 
-                src="/lovable-uploads/f4d30f29-5fef-4273-a3c9-817e1655e8f6.png"
+                src="/lovable-uploads/quartz-sample.jpg"
                 alt="Mine Kirouac – extraction quartz Lanaudière"
                 loading="lazy"
                 decoding="async"
