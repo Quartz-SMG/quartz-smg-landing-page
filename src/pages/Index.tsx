@@ -401,6 +401,40 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Fine Quartz Sand Showcase */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-scale-in order-2 lg:order-1">
+              <img 
+                src="/lovable-uploads/quartz-sand-purete.jpg"
+                alt={isEnglish ? "Fine quartz sand — 99% high‑purity silica from Quebec" : "Sable de quartz fin — silice de haute pureté 99% du Québec"}
+                loading="lazy"
+                decoding="async"
+                className="rounded-3xl shadow-glass w-full h-auto"
+              />
+            </div>
+            <div className="animate-fade-in order-1 lg:order-2">
+              <h2 className="text-4xl lg:text-5xl font-bold gradient-text mb-8">
+                {isEnglish ? "Fine Quartz Sand" : "Sable de Quartz Fin"}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                {isEnglish 
+                  ? "Our finely processed quartz sand showcases exceptional particle uniformity and purity, ideal for demanding industrial applications and construction projects requiring premium-grade silica."
+                  : "Notre sable de quartz finement traité présente une uniformité de particules et une pureté exceptionnelles, idéal pour les applications industrielles exigeantes et les projets de construction nécessitant de la silice de qualité supérieure."
+                }
+              </p>
+              <a href="/contact">
+                <Button size="lg" className="flex items-center gap-3">
+                  {t.contact.title}
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
